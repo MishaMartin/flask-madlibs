@@ -18,8 +18,19 @@ AWESOMENESS = [
 @app.route('/')
 def start_here():
     """Display homepage."""
+    return """
+        <!doctype html>
+        <html>
+        <head>
+            <title>Home</title>
+        </head>
+        <body>
+        <h1>Hi! This is the home page.</h1>
+            <a href="/hello">Get Started</a>
+        </body>
+        </html>
+    """
 
-    return "Hi! This is the home page."
 
 
 @app.route('/hello')
@@ -40,6 +51,10 @@ def greet_person():
     return render_template("compliment.html",
                            person=player,
                            compliment=compliment)
+
+@app.route('/game')
+def show_madlib_form():
+    pass
 
 
 if __name__ == '__main__':
